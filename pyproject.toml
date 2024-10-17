@@ -8,6 +8,7 @@ requires-python = ">=3.11"
 dependencies = [
     "jax>=0.4.34",
     "jaxlib>=0.4.34",
+    "jaxtyping>=0.2.34",
 ]
 
 [build-system]
