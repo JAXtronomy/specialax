@@ -2,3 +2,4 @@
 .__pycache__
 *.pyc
 /src/spexial/_version.py
+.mypy_cache
