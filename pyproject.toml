@@ -1,0 +1,14 @@
+[project]
+name = "spexial"
+version = "0.1.0"
+description = "`scipy.special` in JAX."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jax>=0.4.34",
+    "jaxlib>=0.4.34",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
