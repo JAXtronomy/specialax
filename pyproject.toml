@@ -1,7 +1,7 @@
 [project]
 name = "spexial"
 dynamic = ["version"]
-description = "`scipy.special` in JAX."
+description = "scipy.special in JAX."
 readme = "README.md"
 license.file = "LICENSE"
 requires-python = ">=3.11"
