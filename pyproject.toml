@@ -58,9 +58,14 @@ xfail_strict = true
 [tool.ruff.lint]
 extend-select = ["ALL"]
 ignore = [
-    "D203",    # 1 blank line required before class docstring
-    "D213",    # Multi-line docstring summary should start at the second line
-    "PD"  # Pandas
+    "ANN401",  # Dynamically typed expressions
+    "D203",  # 1 blank line required before class docstring
+    "D213",  # Multi-line docstring summary should start at the second line
+    "F722",  # Syntax error in forward annotation (jaxtyping)
+    "FIX002",  # Line contains TODO, consider resolving the issue"
+    "PD",  # Pandas
+    "TD002",  # Missing author in TODO
+    "TD003",  # Missing issue link on the line following this TODO
 ]
 
 [tool.ruff.lint.per-file-ignores]
