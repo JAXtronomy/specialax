@@ -67,6 +67,7 @@ ignore = [
 "src/spexial/_version.py" = ["SIM108"]
 "src/spexial/_src/gegenbauer.py" = ["ANN001", "ANN202", "ARG001", "D205", "D400", "D401", "D415", "N802", "N803", "N806"]
 "docs/*.py" = ["D104"]
+"tests/*.py" = ["ANN", "S101"]
 
 [tool.ruff.lint.isort]
 combine-as-imports = true
