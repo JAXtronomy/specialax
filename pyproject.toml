@@ -52,6 +52,9 @@ filterwarnings = [
 ]
 testpaths = ["docs", "src/", "tests/"]
 xfail_strict = true
+env = [
+    "JAX_ENABLE_X64=True"
+]
 
 
 [tool.ruff]
@@ -83,7 +86,9 @@ known-local-folder = ["spexial"]
 
 [tool.uv]
 dev-dependencies = [
+    "hypothesis>=6.115.3",
     "pytest-cov>=5.0.0",
+    "pytest-env>=1.1.5",
     "pytest>=8.3.3",
     "sybil>=8.0.0",
 ]
