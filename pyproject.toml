@@ -28,6 +28,7 @@ run.source          = ["spexial"]
 strict = false
 enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
 warn_unreachable = true
+files = ["src"]
 
 
 
