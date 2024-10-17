@@ -1,8 +1,9 @@
 [project]
 name = "spexial"
-version = "0.1.0"
+dynamic = ["version"]
 description = "`scipy.special` in JAX."
 readme = "README.md"
+license.file = "LICENSE"
 requires-python = ">=3.11"
 dependencies = [
     "jax>=0.4.34",
@@ -10,5 +11,71 @@ dependencies = [
 ]
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
+
+[tool.hatch]
+build.hooks.vcs.version-file     = "src/spexial/_version.py"
+version.source                   = "vcs"
+
+
+[tool.coverage]
+report.exclude_also = ['\.\.\.', 'if typing.TYPE_CHECKING:']
+run.source          = ["spexial"]
+
+
+[tool.mypy]
+strict = false
+enable_error_code = ["ignore-without-code", "redundant-expr", "truthy-bool"]
+warn_unreachable = true
+
+
+
+[tool.pytest.ini_options]
+minversion = "7"
+log_cli_level = "INFO"
+addopts = [
+    "--showlocals",
+    "--strict-config",
+    "--strict-markers",
+    "-p no:doctest",    # using sybil
+    "-ra",
+]
+filterwarnings = [
+    "error",
+    "ignore:Attribute s is deprecated and will be removed in Python 3\\.14:DeprecationWarning", # from Sybil
+    "ignore:ast\\.Str is deprecated and will be removed in Python 3\\.14:DeprecationWarning",   # from Sybil
+    # jax
+    "ignore:jax\\.core\\.pp_eqn_rules is deprecated:DeprecationWarning",
+]
+testpaths = ["docs", "src/", "tests/"]
+xfail_strict = true
+
+
+[tool.ruff]
+
+[tool.ruff.lint]
+extend-select = ["ALL"]
+ignore = [
+    "D203",    # 1 blank line required before class docstring
+    "D213",    # Multi-line docstring summary should start at the second line
+    "PD"  # Pandas
+]
+
+[tool.ruff.lint.per-file-ignores]
+"src/spexial/_version.py" = ["SIM108"]
+"src/spexial/_src/gegenbauer.py" = ["ANN001", "ANN202", "ARG001", "D205", "D400", "D401", "D415", "N802", "N803", "N806"]
+"docs/*.py" = ["D104"]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+extra-standard-library = ["typing_extensions"]
+known-local-folder = ["spexial"]
+
+
+[tool.uv]
+dev-dependencies = [
+    "pytest-cov>=5.0.0",
+    "pytest>=8.3.3",
+    "sybil>=8.0.0",
+]
