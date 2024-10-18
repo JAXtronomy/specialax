@@ -6,8 +6,8 @@ from jax import numpy as jnp
 from jax.scipy.special import bernoulli
 from jax.scipy.special import gamma as jax_gamma
 
-from zeta import Riemann_zeta
-from comb import comb
+from .zeta import Riemann_zeta
+from .comb import comb
 
 # Number of terms for Li series. 
 L = 60
