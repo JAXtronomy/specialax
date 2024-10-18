@@ -1,8 +1,19 @@
 """Special functions."""
 
-__all__ = ["gegenbauer_polynomials","comb","gamma","K0","K1","K2","Li","zeta"]
+__all__ = [
+    # Gegenbauer
+    "eval_gegenbauer",
+    "eval_gegenbauers",  # NOTE: not in scipy.special
+    "comb",
+    "gamma",
+    "K0",
+    "K1",
+    "K2",
+    "Li", # NOTE: not in scipy.special
+    "zeta"
+]
 
-from ._src.gegenbauer import gegenbauer_polynomials
+from ._src.gegenbauer import eval_gegenbauer, eval_gegenbauers
 from ._version import version as __version__  # noqa: F401
 from ._src.comb import comb
 from ._src.gamma import gamma
