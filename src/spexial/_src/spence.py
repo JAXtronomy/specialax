@@ -13,6 +13,7 @@ import numpy as np
 MAXITER = 500
 
 
+@jax.numpy.vectorize
 def complex_spence_series_0(z):
     """
     Small z branch, uses a series expansion about :math:`z = 0`
@@ -27,6 +28,7 @@ def complex_spence_series_0(z):
     return np.pi**2 / 6 - sum1 + jnp.log(z) * sum2
 
 
+@jax.numpy.vectorize
 def complex_spence_series_1(z):
     """
     Middle branch, an expansion around :math:`z = 1`
